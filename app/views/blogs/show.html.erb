@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @blog.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @blog.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+
+<h2>Make a comment</h2>
+<%= form_with(model: [@blog, @blog.comments.build], local: true) do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :content %>
+  <%= form.text_area :title %>
+  <%= form.submit %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <h4><%= comment.title %></h4>
+  <p><%= comment.content %></p>
+<% end %>
