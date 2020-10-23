@@ -24,10 +24,16 @@
   <%= form.text_field :title %>
   <%= form.label :content %>
   <%= form.text_area :title %>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id %>
   <%= form.submit %>
 <% end %>
 
 <% @comments.each do |comment| %>
-  <h4><%= comment.title %></h4>
-  <p><%= comment.content %></p>
+  <div style="border: solid 1px black">
+    <h3><%= comment.title %></h3>
+    <p><%= comment.content %></p>
+    <span><%= comment.created_at.strftime("at %d/%m/%y") %>by<%= comment.user.username %></span>
+  </div>
+  
 <% end %>
