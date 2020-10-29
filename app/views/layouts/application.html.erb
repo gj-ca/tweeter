@@ -10,7 +10,13 @@
   </head>
 
   <body>
-    <%= link_to "Instructions Here", root_path%>
+    <nav class="level">
+      <%= link_to "Instructions Here", root_path, class: "level-item"%>
+      <%= link_to "foo", "#", class: "level-item"%>
+      <%= link_to "bar", "#", class: "level-item"%>
+      <%= link_to "biz", "#", class: "level-item"%>
+      <%= link_to "bang", "#", class: "level-item"%>
+    </nav>
     <%= yield %>
   </body>
 </html>
